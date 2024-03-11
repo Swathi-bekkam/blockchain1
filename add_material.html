@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Material</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-display {
+            background-color: #008CBA;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pass {
+            color: #4caf50;
+        }
+
+        .fail {
+            color: #f44336;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add Material</h1>
+    </div>
+
+    <form action="/add_material.html" method="post">
+        <label for="material">Material:</label>
+        <select id="material" name="material" required>
+            <option value="steel">Steel</option>
+            <option value="bronze">Bronze</option>
+            <option value="iron">Iron</option>
+            <option value="aluminum">Aluminum</option>
+            <option value="copper">Copper</option>
+            <option value="gold">Gold</option>
+            <option value="silver">Silver</option>
+            <option value="nickel">Nickel</option>
+            <option value="zinc">Zinc</option>
+            <option value="platinum">Platinum</option>
+
+            <!-- Add more materials as needed -->
+        </select>
+
+        <label for="tensile_strength">Tensile Strength:</label>
+        <input type="number" id="tensile_strength" name="tensile_strength" required>
+
+        <label for="fracture_measurement">Fracture Measurement:</label>
+        <input type="number" id="fracture_measurement" name="fracture_measurement" required>
+
+        <label for="hardness">Hardness:</label>
+        <input type="number" id="hardness" name="hardness" required>
+
+        <label for="impact_strength">Impact Strength:</label>
+        <input type="number" id="impact_strength" name="impact_strength" required>
+
+        <label for="elastic_modulus">Elastic Modulus:</label>
+        <input type="number" id="elastic_modulus" name="elastic_modulus" required>
+
+        <div class="btn-container">
+            <button class="btn" type="submit">Submit</button>
+        </div>
+    </form>
+
+    <div class="message">
+        {% if passed is defined %}
+            {% if passed %}
+                <p class="pass">Material Passed!</p>
+            {% else %}
+                <p class="fail">Material Failed!</p>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <div class="btn-container">
+        <a class="btn btn-display" href="/display_all_materials.html">Display Recent Materials</a>
+        <a class="btn btn-display" href="/display_all_materials.html">Display All Materials</a>
+    </div>
+</body>
+
+</html>
